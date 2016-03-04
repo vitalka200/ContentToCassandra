@@ -23,14 +23,21 @@ public class ContentToCassandra {
 			logger.info("Starting to work on url: '{}'", url);
 		} else {
 			logger.info("Please provide URL to work with...");
+			System.exit(-1);
 		}
 		
-		InitAndStartThreads(url);
-		
-		printDBData();
-		
-		logger.info("Closing connections...");
-		ContentDao.getInstance().teardown();
+		try {
+			InitAndStartThreads(url);
+			
+			printDBData();
+			
+			logger.info("Closing connections...");
+			ContentDao.getInstance().teardown();
+		} catch (Exception e) {
+			logger.error("Oooops. something gone wrong...");
+			logger.error("{}", e);
+			System.exit(-1);
+		}
 	}
 	
 	public static void InitAndStartThreads(String url) {
