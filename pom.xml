@@ -8,7 +8,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   <name>ContentToCassandra</name>
   
 	<properties>
-		<start-class>com.arrisi.sa.saa.ipdr.startupvalidator.App</start-class>
+		<start-class>test.interview.contenttocassandra.app.ContentToCassandra</start-class>
 		<java.source.version>1.7</java.source.version>
 		<java.target.version>1.7</java.target.version>
 		<logback.version>1.1.6</logback.version>
