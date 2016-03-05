@@ -35,7 +35,7 @@ public class DataDownloader implements Runnable {
 			while((is.read(buffer, 0, Config.MAX_CHUNK_SIZE)) != -1) {
 				Chunk chunk = new Chunk();
 				chunk.setChunk_id(UUID.randomUUID());
-				chunk.setChunk_seq_id(chunk_seq);
+				chunk.setChunk_seq_id(chunk_seq++);
 				chunk.setUrl_id(addr.getUrl_id());
 				chunk.setChunk_data(new String(buffer));
 				
