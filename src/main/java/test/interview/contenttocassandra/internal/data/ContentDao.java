@@ -1,7 +1,6 @@
 package test.interview.contenttocassandra.internal.data;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,11 +63,9 @@ public class ContentDao {
 	}
 	
 	public void addUrl(Address addr) {
-		accessor.addUrl(addr.getUrl_id(), addr.getUrl_addr());
-	}
-	
-	public Address getAddrById(UUID url_uuid) {
-		return accessor.getUrlById(url_uuid).one();
+		Address existingAddr = getAddrByUrl(addr.getUrl_addr());
+		if (!addr.equals(existingAddr))
+			accessor.addUrl(addr.getUrl_id(), addr.getUrl_addr());
 	}
 
 	public Address getAddrByUrl(String url_addr) {

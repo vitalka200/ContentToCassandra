@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.datastax.driver.mapping.annotations.PartitionKey;
 import com.datastax.driver.mapping.annotations.Table;
+import com.google.common.base.Objects;
 
 @Table(name = "urls")
 public class Address {
@@ -28,5 +29,13 @@ public class Address {
 		return "Address [url_id=" + url_id + ", url_addr=" + url_addr + "]";
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Address) {
+			Address that = (Address)obj;
+			return Objects.equal(this.getUrl_addr(), that.getUrl_addr());
+		}
+		return false;
+	}
 	
 }

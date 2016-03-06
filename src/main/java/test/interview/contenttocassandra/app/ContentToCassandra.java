@@ -18,8 +18,8 @@ public class ContentToCassandra {
 	public static void main(String[] args) {
 		String url = null; 
 		
-		if (args.length > 1) {
-			url = args[1];
+		if (args.length > 0) {
+			url = args[0];
 			logger.info("Starting to work on url: '{}'", url);
 		} else {
 			logger.info("Please provide URL to work with...");
